@@ -25,27 +25,31 @@ board = PyMata3()
 # Need to give some time to pyFirmata and Arduino to synchronize
 sleep(5)
 
-
+# This is needed to set the Analog pin we are using to report what it observes
+board.enable_analog_reporting(0)
 
 # This block allows us to quit the program if we want
 # by just pressing some keys on the keyboard
 while True:
     try:
+        # wait a little before reading again.
+        # this makes it easier to detect actual differences
+        sleep(0.75)
+        
         lightLevel = board.analog_read(0)
         # Print the values so the user can view them
-        print("Light Level: " + lightLevel)
+        # print("Light Level: " + str(lightLevel))
 
         # Optional: Set up ranges of light levels.  Make it print messages for
         # each range. Hint: if we do this we need a way to 
-        low = 1
-        medium = 2
-        high = 3
-        if('between this and that'):
-            print("words")
-        elif('between that and that'):
-            print("more words")
-        elif("greater than that"):
-            print("even more words")
+        low = 400
+        normal = 600
+        if lightLevel <= low:
+            print("Low light detected")
+        elif lightLevel > low and lightLevel < normal:
+            print("Moderate light detected")
+        else :
+            print("Natural light level detected")
 
 # If someone enters something, quit the program
     except KeyboardInterrupt() :
