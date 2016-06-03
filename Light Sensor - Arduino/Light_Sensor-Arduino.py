@@ -2,38 +2,38 @@
 # Author: Matt Cook
 # Created May 25, 2016
 # Written for Wyoming EPSCoR Summer Coding Camp
-# Version 0.1
+# Version 0.2
+
+# Updated sleep for synchronization times.  Bluetooth may need longer. Added
+# util package import to correct errors with locating package. Fixed bug with
+# Try block.
+
+# Switched to using PyMata-aio instead of pyFirmata.  PyMata does many things pyFirmata doesn't, like auto-detect
+# which port to use.
+
+# TO DO: Test for what moisture levels are acceptable.  Use these in setting
+# acceptable ranges in later part of code.
 
 # Import necessary library/ies
 from time import sleep
+from pymata_aio.pymata3 import PyMata3
+from pymata_aio.constants import Constants
 
-import pyfirmata
-
-# Associate the port and board with the pyFirmata protocol
-# Change your port to the one your Raspberry Pi uses
-# *Look in your workbook to find out how*
-port = 'COM3'
-board = pyfirmata.Arduino(port)
+# Setup the way we will communicate with the Arduino using PyMata.
+board = PyMata3()
 
 # Need to give some time to pyFirmata and Arduino to synchronize
-sleep(2)
+sleep(5)
 
-# Using iterator thread to avoid buffer overflow
-# If you want to know what this does, follow this link:
-# http://pyfirmata.readthedocs.io/en/latest/pyfirmata.html
-it = pyfirmata.util.Iterator(board)
-it.start()
 
-# Set up the pin we will use to monitor the photocell
-lightPin = board.get_pin('a:7:i')
 
 # This block allows us to quit the program if we want
 # by just pressing some keys on the keyboard
-try:
-    while True:
-        # Start reading the values from the photocell
+while True:
+    try:
+        lightLevel = board.analog_read(0)
         # Print the values so the user can view them
-        print("Light Level: " + lightPin.read())
+        print("Light Level: " + lightLevel)
 
         # Optional: Set up ranges of light levels.  Make it print messages for
         # each range. Hint: if we do this we need a way to 
@@ -48,6 +48,6 @@ try:
             print("even more words")
 
 # If someone enters something, quit the program
-except KeyboardInterrupt:
-    board.exit()
+    except KeyboardInterrupt() :
+        board.exit()
 

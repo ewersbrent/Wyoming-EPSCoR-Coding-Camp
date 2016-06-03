@@ -14,7 +14,7 @@ board = pyfirmata.Arduino(port)
 # FOR USER: Once the program is uploaded, disconnect the USB cable
 
 # Wait for the cable to disconnect.  Test connection every second
-while( board.taken() == True):
+while board.taken() == True:
     sleep(1)
 
 # Once disconnected, continue

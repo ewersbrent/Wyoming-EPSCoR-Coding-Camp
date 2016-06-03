@@ -61,7 +61,7 @@ while True:
         if connection.is_open():
             instruction = input("What do you want from the Arduino?")
             instructArduino(instruction)
-            # Prints the results of our readArduino function
+            # Prints the results of our makeReadable function
             print (readArduino())
 
     except:
@@ -82,7 +82,7 @@ while True:
         # Wait half a second to read again
         sleep(0.5)
         if connection.is_open():
-            # Prints the results of our readArduino function
+            # Prints the results of our makeReadable function
             print (readArduino())
             # TO DO: If we want to only print when certain conditions are met
             # a different function will need to be written
