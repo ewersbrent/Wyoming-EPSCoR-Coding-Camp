@@ -1,6 +1,6 @@
 {
-  "name": "Wyoming-epscor-coding-camp",
-  "tagline": "",
+  "name": "Wyoming EPSCoR Cyber Plant Camp",
+  "tagline": "Ecology Meets Technology",
   "body": "# Cyber Plant Camp\r\n## Using technology to keep plants alive!  \r\n  \r\n###Technology employed:\r\nPython coding, Raspberry Pi 3's, and Arduino Unos\r\n\r\n###Knowledge and skills development:  \r\nPlant physiology, python coding, and computer engineering.  \r\n \r\n###Audience:  \r\nStudents grades 5-7  \r\n\r\n##Course overview:  \r\nOver the course of three days, middle school students will build a Raspberry Pi moisture sensor to monitor a plant. They will apply basic concepts related to plant physiology and programming to develop a choice of three systems.  All three combine the use of Python, Arduino Unos, Rasperry Pi 3's, and a potted plant.  The three systems either use an Arduino to sense soil moisture, sense light levels, or both.  The Raspberry Pi displays the moisture readings on its screen, and may send messages to the students when plant watering is needed, if time permits.\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
