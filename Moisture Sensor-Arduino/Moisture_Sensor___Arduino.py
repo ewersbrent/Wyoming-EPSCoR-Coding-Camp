@@ -2,7 +2,7 @@
 # Author: Matt Cook
 # Written for Wyoming EPSCoR Summer Coding Camp
 # Created May 25, 2016
-# Version 0.3
+# Version 1.0
 
 # Added Try block to help with exiting code.  Added annotations and comments.  Inserted valid
 # Linux port name.
@@ -10,11 +10,11 @@
 # PyMata-aio
 
 # Import libraries to interact with Arduino
-import time
 import sys
-import signal
+import time
 
 from PyMata.pymata import PyMata
+
 # Setup the translator for how we talk to the Arduino
 board = PyMata("/dev/rfcomm0", verbose=True)
 

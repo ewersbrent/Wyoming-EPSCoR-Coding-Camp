@@ -8,7 +8,7 @@
 
 # Import necessary library/ies
 import sys
-from time import sleep
+
 from PyMata.pymata import PyMata
 
 # Setup the way we will communicate with the Arduino using PyMata.

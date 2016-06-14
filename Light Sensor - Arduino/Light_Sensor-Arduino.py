@@ -2,7 +2,7 @@
 # Author: Matt Cook
 # Created May 25, 2016
 # Written for Wyoming EPSCoR Summer Coding Camp
-# Version 0.3
+# Version 1.0
 
 # Updated sleep for synchronization times.  Bluetooth may need longer. Added
 # util package import to correct errors with locating package. Fixed bug with
@@ -19,6 +19,7 @@
 # Import necessary library/ies
 import sys
 from time import sleep
+
 from PyMata.pymata import PyMata
 
 # Setup the way we will communicate with the Arduino using PyMata.

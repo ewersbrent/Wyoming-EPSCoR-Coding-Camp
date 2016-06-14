@@ -1,13 +1,14 @@
-#!/usr/bin/python
-
 # Author: Matt Cook
 # Created May 19, 2016
 # Written for Wyoming EPSCoR Summer Coding Camp 2016
+# Verson 1.0
 
 
 # import the required libraries
-import pyfirmata
 from time import sleep
+
+import pyfirmata
+
 
 # The documentation for each library is found here
 # http://pyfirmata.readthedocs.io/en/latest/pyfirmata.html

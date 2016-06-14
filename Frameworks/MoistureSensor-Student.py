@@ -2,14 +2,12 @@
 # Author: Matt Cook
 # Written for Wyoming EPSCoR Summer Coding Camp
 # Created May 25, 2016
-# Version 0.3
+# Version 1.0
 
 # Incomplete file for handling the Moisture Sensor on the Arduino
 
 # Import libraries to interact with Arduino
-import time
 import sys
-import signal
 
 from PyMata.pymata import PyMata
 # Setup the translator for how we talk to the Arduino

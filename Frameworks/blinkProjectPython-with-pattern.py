@@ -6,8 +6,10 @@
 
 
 # import the required libraries
-import pyfirmata
 from time import sleep
+
+import pyfirmata
+
 
 # The documentation for each library is found here
 # http://pyfirmata.readthedocs.io/en/latest/pyfirmata.html
