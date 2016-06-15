@@ -12,30 +12,23 @@ is then sent to your phone.  We can only text this number 3 times an hour, so ma
 use the texts to alert you of major events.
 """
 
-# The PycURL library we are using is just a way for us to use a prewritten program for handling
+# The urllib library we are using is just a way for us to use a prewritten program for handling
 # Internet based communication.  The underlying program is called cURL.  If you want to learn more
-# about how it works, look here http://www.angryobjects.com/2011/10/15/http-with-python-pycurl-by-example/
-import pycurl
+# about how it works, look here https://docs.python.org/2/library/urllib.html#examples
+import urllib
 
-# This line opens an object to deal with HTTP communication for us. 'text' is now the
-# object we will be working with.
-text = pycurl.Curl()
+# This line specifies which website we will be interacting with during the
+# email-to-text conversion
+address = 'http://textbelt.com/text'
 
-# This sets the 'text' variable to deal with our textbelt website.
-text.setopt(text.URL, 'http://textbelt.com/text')
+# This line creates our message and makes sure we are using only standard characters because
+# web transmissions can be picky about special characters
+info=urllib.urlencode({'number':'5419109467','message':'our message'})
 
-# Change this to be the message you want to send.
-message = 'our message'
+# This line sets up the way we want to send and receive information to/from the
+# website.  It also sends our POST (let us send something and send us a response) request.
+post = urllib.urlopen(address,info)
 
-# This sets up the message we want to send.  POST is a way of sending information
-# and asking for a response about what happened to the information we sent.  Hopefully,
-# we should get something like {success:true}
-# NOTE: Replace the number after 'number=' with the phone number you want to text.
-text.setopt(text.POSTFIELDS, 'number=1234567890&message=' + message)
-
-# This actually performs our POST operation from before.
-text.perform()
-
-# This gets rid of our object we were working with.
-text.close()
+# This prints the result of our website interaction
+print post.read()
 
