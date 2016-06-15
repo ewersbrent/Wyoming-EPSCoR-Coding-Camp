@@ -21,14 +21,19 @@ import urllib
 # email-to-text conversion
 address = 'http://textbelt.com/text'
 
+# We need to make things easier to read, so we store our message in this describing variable
+# before we send it off.
+message = 12345
+
 # This line creates our message and makes sure we are using only standard characters because
 # web transmissions can be picky about special characters
-info=urllib.urlencode({'number':'5419109467','message':'our message'})
+info=urllib.urlencode({'number':'3031234567','message':message})
 
 # This line sets up the way we want to send and receive information to/from the
 # website.  It also sends our POST (let us send something and send us a response) request.
 post = urllib.urlopen(address,info)
 
-# This prints the result of our website interaction
+# This prints the result of our website interaction.  It tells us if the message was
+# sent successfully or failed to send.
 print post.read()
 
